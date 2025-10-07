@@ -1,0 +1,46 @@
+.alphabet-grid-page {
+  padding: 30px;
+  text-align: center;
+}
+
+.alphabet-grid-page h2 {
+  margin-bottom: 20px;
+}
+
+.alphabet-grid-page .back-btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: #2196f3;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.alphabet-grid-page .back-btn:hover {
+  background-color: #1976d2;
+}
+
+.alphabet-grid-page .letters-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 15px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.alphabet-grid-page .letter-card {
+  padding: 20px;
+  border-radius: 8px;
+  background-color:gray;
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.alphabet-grid-page .letter-card:hover {
+  transform: scale(1.1);
+  background-color: gray;
+}

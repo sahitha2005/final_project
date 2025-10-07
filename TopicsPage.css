@@ -1,0 +1,61 @@
+.topic-page {
+  padding: 30px;
+  text-align: center;
+}
+
+.topic-page h2 {
+  margin-bottom: 30px;
+  font-size: 28px;
+  color: #333;
+}
+
+.topic-page .topics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px; /* increased gap between cards */
+  max-width: 600px; /* wider grid */
+  margin: 0 auto;
+}
+
+.topic-page .topic-card {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #2196f3; /* lighter blue */
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.topic-page .topic-card:hover {
+  transform: scale(1.05);
+  background-color: #1976d2; /* darker blue on hover */
+}
+
+.topic-page .topic-card img.topic-image {
+  width: 100%;
+  height: 130px; /* slightly taller */
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.topic-page .back-btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: #2196f3;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.topic-page .back-btn:hover {
+  background-color: #1976d2;
+}
+
+.topic-page p {
+  font-size: 18px;
+  margin-top: 0;
+}
