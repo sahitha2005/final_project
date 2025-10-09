@@ -6,6 +6,9 @@ import ColorsPage from "./components/ColorsPage";
 import SingleColorPage from "./components/SingleColorPage";
 import AlphabetsGridPage from "./components/AlphabetsGridPage";
 import SingleLetterPage from "./components/SingleLetterPage";
+import ActivitiesMenu from './components/Activities/ActivitiesMenu';
+import WordImageMatch from './components/Activities/WordImageMatch';
+import LetterSort from './components/Activities/LetterSort';
 
 function App() {
   return (
@@ -25,6 +28,9 @@ function App() {
         {/* Alphabets */}
         <Route path="/alphabets" element={<AlphabetsGridPage />} />
         <Route path="/alphabets/:letter" element={<SingleLetterPage />} />
+        <Route path="/activities" element={<ActivitiesMenu />} />
+        <Route path="/activities/word-match" element={<WordImageMatch />} />
+        <Route path="/activities/letter-sort" element={<LetterSort />} />
 
         {/* Default Route */}
         <Route path="*" element={<TopicsPage />} />
