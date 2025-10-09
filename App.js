@@ -1,26 +1,33 @@
-import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import LoginPage from "./components/LoginPage";
 import TopicsPage from "./components/TopicsPage";
-import AlphabetsPage from "./components/AlphabetsGridPage";
+import ShapesPage from "./components/ShapesPage";
+import SingleShapePage from "./components/SingleShapePage";
+import ColorsPage from "./components/ColorsPage";
+import SingleColorPage from "./components/SingleColorPage";
+import AlphabetsGridPage from "./components/AlphabetsGridPage";
 import SingleLetterPage from "./components/SingleLetterPage";
-import NumbersPage from "./components/NumbersPage";
-import SingleNumberPage from "./components/SingleNumberPage";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<LoginPage />} />
+        {/* Topics Page */}
         <Route path="/topics" element={<TopicsPage />} />
 
-        {/* Alphabets routes */}
-        <Route path="/alphabets" element={<AlphabetsPage />} />
+        {/* Shapes */}
+        <Route path="/shapes" element={<ShapesPage />} />
+        <Route path="/shapes/:shape" element={<SingleShapePage />} />
+
+        {/* Colors */}
+        <Route path="/colors" element={<ColorsPage />} />
+        <Route path="/colors/:color" element={<SingleColorPage />} />
+
+        {/* Alphabets */}
+        <Route path="/alphabets" element={<AlphabetsGridPage />} />
         <Route path="/alphabets/:letter" element={<SingleLetterPage />} />
 
-        {/* Numbers routes */}
-        <Route path="/numbers" element={<NumbersPage />} />
-        <Route path="/numbers/:number" element={<SingleNumberPage />} />
+        {/* Default Route */}
+        <Route path="*" element={<TopicsPage />} />
       </Routes>
     </Router>
   );

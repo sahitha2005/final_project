@@ -1,0 +1,41 @@
+.colors-grid-page {
+  padding: 20px;
+  text-align: center;
+}
+
+.colors-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 colors per row */
+  gap: 20px;
+  margin-top: 20px;
+  justify-items: center;
+}
+
+.color-card {
+  cursor: pointer;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  padding: 12px;
+  background-color: #fff;
+  transition: transform 0.25s, box-shadow 0.25s;
+  width: 150px; /* keeps each card nicely sized */
+}
+
+.color-card:hover {
+  transform: scale(1.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.color-card img {
+  width: 100%;
+  height: 120px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.color-name {
+  margin-top: 8px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #333;
+}
