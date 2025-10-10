@@ -11,10 +11,10 @@ const shapeImages = {
     "https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   ],
   Square: [
-    "https://images.unsplash.com/photo-1541746972996-4f0d9b062dd1?w=500",
-    "https://images.unsplash.com/photo-1533089860892-a7b6b7f91c9f?w=500",
-    "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?w=500",
-    "https://images.unsplash.com/photo-1526040652367-ac003a0475fe?w=500"
+    "https://plus.unsplash.com/premium_photo-1671305112886-f43c82172297?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjV8fGNoZXNzJTIwYm9hcmR8ZW58MHx8MHx8fDA%3D",
+    "https://images.unsplash.com/photo-1723641930574-7c0ef45ccca6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c3F1YXJlJTIwY2xvY2t8ZW58MHx8MHx8fDA%3D",
+    "https://images.unsplash.com/photo-1600359773269-0e5197c3829b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGl6emElMjBib3h8ZW58MHx8MHx8fDA%3D",
+    "https://images.unsplash.com/photo-1617300067484-314ed2cfd9a6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2Fycm9tJTIwYm9hcmR8ZW58MHx8MHx8fDA%3D"
   ],
   Triangle: [
     "https://www.shutterstock.com/image-photo/pepperoni-pizza-slice-on-transparent-600w-2585448637.jpg",
@@ -41,28 +41,28 @@ const shapeImages = {
     "https://cpimg.tistatic.com/09487966/b/4/Traffic-Sign-Board.jpg"
   ],
   Pentagon: [
-    "https://images.unsplash.com/photo-1530007550359-6e0c2c6b01e6?w=500",
-    "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?w=500",
-    "https://images.unsplash.com/photo-1526045612212-70caf35c14df?w=500",
-    "https://images.unsplash.com/photo-1503602642458-232111445657?w=500"
+    "https://upload.wikimedia.org/wikipedia/commons/b/b6/Pentagonal_prism.png",
+    "https://i.ytimg.com/vi/p_ENhKu836I/maxresdefault.jpg",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-Phe_p3A3AP_sGMQ0DJSzcbsYXL7E7n0TCw&s",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYb6UQISIIgr97BV6YHFHXj8EwEo8apfIqEw&s"
   ],
   Oval: [
-    "https://images.unsplash.com/photo-1614608666214-b6de69b43cf6?w=500",
-    "https://images.unsplash.com/photo-1602397495337-f2b5dc839b2d?w=500",
-    "https://images.unsplash.com/photo-1509099836639-18ba0f92d6c0?w=500",
-    "https://images.unsplash.com/photo-1612831455547-c22ab933f9d1?w=500"
+    "https://media.istockphoto.com/id/1317493024/photo/american-rugby-ball-on-the-grass-in-the-stadium.webp?a=1&b=1&s=612x612&w=0&k=20&c=lEY9mZH7w2jPp_qeIvj0ra8txOsJpBQ8TVlSCDt2WJ0=",
+    "https://media.istockphoto.com/id/1366357877/photo/fresh-fruit-glossy-black-watermelon-isolated-on-white-background-selective-focus.webp?a=1&b=1&s=612x612&w=0&k=20&c=oh_mQjyMNzOhizRbqkY_H9OSLqMpx2JVJAju27Cp-1g=",
+    "https://images.unsplash.com/photo-1587486913049-53fc88980cfc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGVnZ3N8ZW58MHx8MHx8fDA%3D",
+    "https://images.unsplash.com/photo-1609889132698-1625aefc7f6b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8S2l3aShmcnVpdCl8ZW58MHx8MHx8fDA%3D"
   ],
   SemiCircle: [
-    "https://images.unsplash.com/photo-1541746972996-4f0d9b062dd1?w=500",
-    "https://images.unsplash.com/photo-1533089860892-a7b6b7f91c9f?w=500",
-    "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?w=500",
-    "https://images.unsplash.com/photo-1526040652367-ac003a0475fe?w=500"
+    "https://images.unsplash.com/photo-1593362831502-5c3ad1c05f57?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cmFpbmJvd3xlbnwwfHwwfHx8MA%3D%3D",
+    "https://media.istockphoto.com/id/185111174/photo/lime-slice.webp?a=1&b=1&s=612x612&w=0&k=20&c=WA80Rbad0qabPpmUEXjv4pg0FhGfr_VD1atEidD2bzU=",
+    "https://images.unsplash.com/photo-1527842891421-42eec6e703ea?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8TW9vbnxlbnwwfHwwfHx8MA%3D%3D",
+    "https://media.istockphoto.com/id/828667894/photo/watermelon-on-blue-background.webp?a=1&b=1&s=612x612&w=0&k=20&c=3J-1oEPYIaN5XyxksiPzFYZ-LnkUZ3KmVRi9T-QjEPA="
   ],
   Hexagon: [
-    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500",
-    "https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?w=500",
-    "https://images.unsplash.com/photo-1533622597524-a121c0f4b3e0?w=500",
-    "https://images.unsplash.com/photo-1549989473-1f6f48cfdeeb?w=500"
+    "https://m.media-amazon.com/images/I/31HgIajaiDL._UF894,1000_QL80_.jpg",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvPScDQDBUx115J6Zm2lrKBGckhMxw_cSNj0EIkj_6BmSeQW6XWBhTy3spmiT60hCzDiY&usqp=CAU",
+    "https://media.istockphoto.com/id/1079142536/photo/3d-illustration-of-a-black-honeycomb-shaped-shelf.jpg?s=612x612&w=0&k=20&c=XJRosyMmdkGvgBKCF2W0yBY8H_JnsvV5oYpLmD82Clc=",
+    "https://t4.ftcdn.net/jpg/17/09/50/55/360_F_1709505592_9r7DrKaz3ndcz2Q1mKTXyy89EgGC5qlc.jpg"
   ]
 };
 

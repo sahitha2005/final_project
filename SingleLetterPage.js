@@ -48,7 +48,6 @@ const SingleLetterPage = () => {
     speak(currentLetter);
   }, [currentLetter]);
 
-  // Speak function with female voice
   const speak = (text) => {
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.rate = 0.8;
@@ -76,29 +75,37 @@ const SingleLetterPage = () => {
       </button>
 
       <div className="letter-content">
-  <h2>{currentLetter}</h2>
-  <div className="image-container">
-    <img
-      src={currentData.url}
-      alt={currentLetter}
-      className="letter-image"
-      onClick={() => speak(currentData.word)}
-      style={{ cursor: "pointer" }}
-    />
-    <p className="image-word">{currentData.word}</p>
-  </div>
-</div>
+        <h2>{currentLetter}</h2>
+        <div className="image-container">
+          <img
+            src={currentData.url}
+            alt={currentLetter}
+            className="letter-image"
+            onClick={() => speak(currentData.word)}
+            style={{ cursor: "pointer" }}
+          />
+          <p className="image-word">{currentData.word}</p>
+        </div>
+      </div>
 
       <div className="navigation-buttons">
-        <button onClick={handlePrevious} disabled={currentIndex === 0}>
-          Previous
-        </button>
-        <button
-          onClick={handleNext}
-          disabled={currentIndex === letters.length - 1}
-        >
-          Next
-        </button>
+        {currentIndex < letters.length - 1 ? (
+          <>
+            <button onClick={handlePrevious} disabled={currentIndex === 0}>
+              Previous
+            </button>
+            <button
+              onClick={handleNext}
+              disabled={currentIndex === letters.length - 1}
+            >
+              Next
+            </button>
+          </>
+        ) : (
+          <button onClick={() => navigate("/activities")}>
+            Play Activities
+          </button>
+        )}
       </div>
     </div>
   );

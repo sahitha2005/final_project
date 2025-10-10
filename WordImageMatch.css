@@ -50,3 +50,42 @@ cursor: pointer;
 }
 .word-match .next-btn { background: #16a34a; color: white; }
 .word-match .back-btn { background: #e5e7eb; color: #111; }
+.score-card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.score-card {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  padding: 40px;
+  text-align: center;
+  width: 300px;
+}
+
+.score-card h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.score-card p {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.score-card button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.score-card button:hover {
+  background-color: #45a049;
+}

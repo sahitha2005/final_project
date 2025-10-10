@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "./SingleNumberPage.css";
 
-// Number words map
 const numberWords = {
   1: "one", 2: "two", 3: "three", 4: "four", 5: "five",
   6: "six", 7: "seven", 8: "eight", 9: "nine", 10: "ten",
@@ -32,7 +31,6 @@ const numberWords = {
   99: "ninety-nine", 100: "one hundred"
 };
 
-// Generate placeholder image for numbers
 const getNumberImageUrl = (num) =>
   `https://via.placeholder.com/200?text=${num}`;
 
@@ -45,9 +43,9 @@ const SingleNumberPage = () => {
     speakNumber(currentNumber);
   }, [currentNumber]);
 
-  // Speak full number word
   const speakNumber = (n) => {
-    const utterance = new SpeechSynthesisUtterance(numberWords[n]);
+    if (!n || !numberWords[n]) return;
+    const utterance = new SpeechSynthesisUtterance(n.toString());
     utterance.rate = 0.8;
     utterance.pitch = 1.2;
     const voices = window.speechSynthesis.getVoices();
@@ -58,8 +56,8 @@ const SingleNumberPage = () => {
     window.speechSynthesis.speak(utterance);
   };
 
-  // Speak letters of the number word
   const speakLetters = (n) => {
+    if (!n || !numberWords[n]) return;
     const spelled = numberWords[n].split("").join("-");
     const utterance = new SpeechSynthesisUtterance(spelled);
     utterance.rate = 0.8;
@@ -82,29 +80,30 @@ const SingleNumberPage = () => {
 
   return (
     <div className="single-number-page">
-      <button className="back-btn" onClick={() => navigate("/numbers")}>
-        Back to Numbers
-      </button>
+      <div className="number-content" style={{ textAlign: "center" }}>
+        <button className="back-btn" onClick={() => navigate("/numbers")}>
+          Back to Numbers
+        </button>
 
-      <div className="number-content">
         <h2>{currentNumber}</h2>
+
         <div className="image-container">
           <img
             src={getNumberImageUrl(currentNumber)}
             alt={currentNumber}
-            onClick={() => speakLetters(currentNumber)}
+            onClick={() => speakLetters(currentNumber)} // spells letters like o-n-e
           />
           <p className="number-word">{numberWords[currentNumber]}</p>
         </div>
-      </div>
 
-      <div className="navigation-buttons">
-        <button onClick={handlePrevious} disabled={currentNumber === 1}>
-          Previous
-        </button>
-        <button onClick={handleNext} disabled={currentNumber === 100}>
-          Next
-        </button>
+        <div className="navigation-buttons">
+          <button onClick={handlePrevious} disabled={currentNumber === 1}>
+            Previous
+          </button>
+          <button onClick={handleNext} disabled={currentNumber === 100}>
+            Next
+          </button>
+        </div>
       </div>
     </div>
   );

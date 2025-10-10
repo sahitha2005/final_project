@@ -9,6 +9,12 @@ import SingleLetterPage from "./components/SingleLetterPage";
 import ActivitiesMenu from './components/Activities/ActivitiesMenu';
 import WordImageMatch from './components/Activities/WordImageMatch';
 import LetterSort from './components/Activities/LetterSort';
+import NumbersPage from './components/NumbersPage';
+import SingleNumberPage from './components/SingleNumberPage';
+import NumbersQuiz from './components/Activities/NumbersQuiz';
+import ColorsQuiz from './components/Activities/ColorsQuiz'; 
+import ShapesQuiz from './components/Activities/ShapesQuiz';
+
 
 function App() {
   return (
@@ -28,10 +34,19 @@ function App() {
         {/* Alphabets */}
         <Route path="/alphabets" element={<AlphabetsGridPage />} />
         <Route path="/alphabets/:letter" element={<SingleLetterPage />} />
+
+        {/* Numbers */}
+        <Route path="/numbers" element={<NumbersPage />} />
+        <Route path="/numbers/:number" element={<SingleNumberPage />} />
+
+        {/* Activities */}
         <Route path="/activities" element={<ActivitiesMenu />} />
         <Route path="/activities/word-match" element={<WordImageMatch />} />
         <Route path="/activities/letter-sort" element={<LetterSort />} />
-
+        <Route path="/activities/numbers-quiz" element={<NumbersQuiz />} />
+        <Route path="/activities/colors-quiz" element={<ColorsQuiz />} /> 
+        <Route path="/activities/shapes-quiz" element={<ShapesQuiz />} />
+        
         {/* Default Route */}
         <Route path="*" element={<TopicsPage />} />
       </Routes>

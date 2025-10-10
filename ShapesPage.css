@@ -1,41 +1,47 @@
-.shapes-grid-page {
-  padding: 20px;
-  text-align: center;
-}
-
-.shapes-grid-page h2 {
-  margin-bottom: 20px;
-  font-size: 24px;
-}
-
+/* Shapes / Colors Grid */
 .shapes-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* 5 shapes per row */
-  gap: 15px;
+  grid-template-columns: repeat(5, 1fr); /* 5 items per row */
+  gap: 30px; /* increased gap between items */
+  justify-items: center;
   margin-top: 20px;
 }
 
 .shape-card {
   cursor: pointer;
-  border: 2px solid #ccc;
-  border-radius: 10px;
-  padding: 10px;
-  transition: transform 0.2s, box-shadow 0.2s;
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: center;
+  background: white;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 120px; /* slightly bigger card */
+  height: 140px; /* add some height for name */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px; /* inner spacing */
 }
 
 .shape-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
 .shape-card img {
-  width: 100%;
+  width: 100px;
   height: 100px;
-  object-fit: contain; /* Keeps image proportional */
-  border-radius: 8px;
+  object-fit: contain;
 }
 
 .shape-name {
-  margin-top: 8px;
-  font-weight: bold;
+  margin-top: 10px;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+}
+.centered-title {
+  text-align: center;
+  margin: 20px 0; /* spacing above and below */
 }

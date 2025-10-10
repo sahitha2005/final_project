@@ -1,16 +1,22 @@
 .single-number-page {
-  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center horizontally */
+  justify-content: center; /* center vertically */
+  min-height: 100vh; /* full viewport height */
   text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .back-btn {
-  padding: 8px 12px;
+  padding: 10px 16px;
   border: none;
   border-radius: 5px;
   background-color: #3f51b5;
   color: white;
   cursor: pointer;
-  margin-bottom: 20px;
+  margin-bottom: 30px; /* space between button and number content */
 }
 
 .back-btn:hover {
@@ -20,6 +26,7 @@
 .number-content h2 {
   font-size: 48px;
   color: #3f51b5;
+  margin: 20px 0;
 }
 
 .image-container {
@@ -46,11 +53,12 @@
 
 .navigation-buttons {
   margin-top: 20px;
+  display: flex;
+  gap: 20px;
 }
 
 .navigation-buttons button {
   padding: 8px 12px;
-  margin: 0 10px;
   background-color: #3f51b5;
   color: white;
   border: none;
@@ -65,3 +73,12 @@
 .navigation-buttons button:hover:enabled {
   background-color: #5c6bc0;
 }
+.numbers-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr); /* 10 numbers per row */
+  gap: 8px;
+  justify-items: center;
+  max-width: 800px;
+  margin: 0 auto; /* centers the whole grid */
+}
+

@@ -1,60 +1,136 @@
 .letter-sort {
-margin-bottom: 20px;
-color: #333;
+  max-width: 650px;
+  margin: 20px auto;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
 }
-.letter-sort .score {
-margin-bottom: 15px;
-font-weight: bold;
+
+h1 {
+  color: #4a90e2;
+  margin-bottom: 15px;
 }
-.letter-sort .slots {
-display: flex;
-justify-content: center;
-gap: 10px;
-margin-bottom: 20px;
+
+.score {
+  font-size: 18px;
+  margin-bottom: 20px;
+  font-weight: bold;
 }
-.letter-sort .slot {
-width: 50px;
-height: 50px;
-border: 2px solid gray;
-border-radius: 10px;
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 1.5rem;
-background: #f3f4f6;
+
+.slots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
 }
-.letter-sort .slot.correct { border-color: #16a34a; }
-.letter-sort .slot.wrong { border-color: #dc2626; }
-.letter-sort .letters {
-display: flex;
-justify-content: center;
-gap: 10px;
-flex-wrap: wrap;
-margin-bottom: 20px;
+
+.slot {
+  width: 50px;
+  height: 50px;
+  border: 2px solid gray;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  background-color: #f5f5f5;
+  transition: border-color 0.3s, background-color 0.3s;
 }
-.letter-sort .letter {
-width: 50px;
-height: 50px;
-border: 2px solid #4f46e5;
-border-radius: 10px;
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 1.5rem;
-background: white;
-cursor: grab;
+
+.slot.correct {
+  border-color: green;
+  background-color: #d4f7d4;
 }
-.letter-sort .buttons {
-display: flex;
-justify-content: center;
-gap: 10px;
+
+.slot.wrong {
+  border-color: red;
+  background-color: #f7d4d4;
 }
-.letter-sort .check-btn, .letter-sort .next-btn, .letter-sort .back-btn {
-padding: 10px 20px;
-border-radius: 10px;
-border: none;
-cursor: pointer;
+
+.letters {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
 }
-.letter-sort .check-btn { background: #16a34a; color: white; }
-.letter-sort .next-btn { background: #4f46e5; color: white; }
-.letter-sort .back-btn { background: #e5e7eb; color: #111; }
+
+.letter {
+  width: 50px;
+  height: 50px;
+  background-color: #4a90e2;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  cursor: grab;
+  user-select: none;
+  transition: background-color 0.3s;
+}
+
+.letter:active {
+  cursor: grabbing;
+  background-color: #357ab8;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.next-btn, .retry-btn, .back-btn {
+  padding: 12px 25px;
+  min-width: 120px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  color: white;
+}
+
+.next-btn {
+  background-color: #4caf50;
+}
+
+.next-btn:hover {
+  background-color: #45a049;
+}
+
+.retry-btn {
+  background-color: #ff9800;
+}
+
+.retry-btn:hover {
+  background-color: #e68a00;
+}
+
+.back-btn {
+  background-color: #2196f3;
+}
+
+.back-btn:hover {
+  background-color: #1976d2;
+}
+
+/* Score Card */
+.score-card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.score-card {
+  background-color: #f5f5f5;
+  padding: 30px 40px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}

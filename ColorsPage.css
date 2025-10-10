@@ -1,41 +1,88 @@
-.colors-grid-page {
+.colors-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
   padding: 20px;
-  text-align: center;
+  justify-content: space-between; /* ensures top & bottom placement */
 }
 
+/* Top center button */
+.button-top-center {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/* Bottom center button */
+.button-bottom-center {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Buttons Style */
+.back-btn,
+.start-quiz-btn {
+  background-color: #4b9cd3;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover,
+.start-quiz-btn:hover {
+  background-color: #2d7ebd;
+  transform: scale(1.05);
+}
+
+/* Colors Grid */
 .colors-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* 5 colors per row */
-  gap: 20px;
-  margin-top: 20px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 30px; /* more space between items */
   justify-items: center;
+  margin-top: 20px;
 }
 
 .color-card {
   cursor: pointer;
-  border: 2px solid #ccc;
   border-radius: 12px;
-  padding: 12px;
-  background-color: #fff;
-  transition: transform 0.25s, box-shadow 0.25s;
-  width: 150px; /* keeps each card nicely sized */
+  overflow: hidden;
+  text-align: center;
+  background: white;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100px;
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
 }
 
 .color-card:hover {
-  transform: scale(1.08);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
 .color-card img {
-  width: 100%;
-  height: 120px;
-  border-radius: 8px;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
 }
 
 .color-name {
-  margin-top: 8px;
-  font-weight: bold;
-  font-size: 1.1rem;
+  margin-top: 10px;
+  font-weight: 600;
   color: #333;
+  text-align: center;
 }
