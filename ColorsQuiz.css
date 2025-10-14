@@ -153,3 +153,18 @@ h2 {
   font-size: 1.5rem;
   padding: 20px 30px;
 }
+.previous-btn {
+  background-color: #3498db; /* Blue */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-right: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.previous-btn:hover {
+  background-color: #2980b9; /* Darker blue on hover */
+}

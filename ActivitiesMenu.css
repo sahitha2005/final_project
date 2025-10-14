@@ -1,32 +1,36 @@
 .activities-menu {
-max-width: 400px;
-margin: 50px auto;
-padding: 20px;
-background: #f9f9f9;
-border-radius: 15px;
-text-align: center;
-box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  background-image: url('https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg'); /* Added background image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .activities-menu .title {
-font-size: 1.8rem;
-margin-bottom: 25px;
-color: #333;
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  color: #333;
 }
 .activities-menu .buttons {
-display: flex;
-flex-direction: column;
-gap: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 .activities-menu .activity-btn {
-padding: 12px;
-font-size: 1rem;
-border-radius: 10px;
-border: none;
-background-color: #4f46e5;
-color: white;
-cursor: pointer;
-transition: background 0.3s;
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: none;
+  background-color: #4f46e5;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 .activities-menu .activity-btn:hover {
-background-color: #4338ca;
+  background-color: #4338ca;
 }

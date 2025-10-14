@@ -1,8 +1,16 @@
 .letter-sort {
-  max-width: 650px;
-  margin: 20px auto;
-  text-align: center;
-  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  background-image: url('https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg'); 
+  background-size: cover;       
+  background-position: center;  
+  background-repeat: no-repeat; 
+  padding: 20px;
+  box-sizing: border-box;
+  color: #fff; 
 }
 
 h1 {
@@ -83,41 +91,32 @@ h1 {
   flex-wrap: wrap;
 }
 
-.next-btn, .retry-btn, .back-btn {
-  padding: 12px 25px;
-  min-width: 120px;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: bold;
+/* Make all buttons same size */
+.next-btn, .retry-btn, .back-btn, .prev-btn {
+  min-width: 120px;   
+  padding: 12px 20px; 
+  font-size: 16px;    
+  text-align: center;
+  border-radius: 8px; 
   cursor: pointer;
-  transition: background-color 0.3s;
   color: white;
+  border: none;
+  transition: background-color 0.3s;
 }
 
-.next-btn {
-  background-color: #4caf50;
-}
+/* Individual button colors */
+.next-btn { background-color: #4caf50; }
+.next-btn:hover { background-color: #45a049; }
 
-.next-btn:hover {
-  background-color: #45a049;
-}
+.retry-btn { background-color: #ff9800; }
+.retry-btn:hover { background-color: #e68a00; }
 
-.retry-btn {
-  background-color: #ff9800;
-}
+.back-btn { background-color: #2196f3; }
+.back-btn:hover { background-color: #1976d2; }
 
-.retry-btn:hover {
-  background-color: #e68a00;
-}
-
-.back-btn {
-  background-color: #2196f3;
-}
-
-.back-btn:hover {
-  background-color: #1976d2;
-}
+.prev-btn { background-color: #f39c12; }
+.prev-btn:hover { background-color: #e67e22; }
+.prev-btn:disabled { background-color: #f0ad4e; cursor: not-allowed; }
 
 /* Score Card */
 .score-card-container {

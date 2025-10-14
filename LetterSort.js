@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './LetterSort.css';
 
-const words = ['CAT','DOG','APPLE','BALL','TREE','FISH','LION','MONKEY'];
+const words = ['CAT','DOG','APPLE','BALL','TREE','FISH','LION','MONKEY','NEST','QUEEN','RABBIT','TIGER','ZEBRA','SUN','FLOWER'];
 
 export default function LetterSort() {
   const navigate = useNavigate();
@@ -68,6 +68,12 @@ export default function LetterSort() {
     }
   };
 
+  const previous = () => {
+    if(wordIndex > 0){
+      setWordIndex(wordIndex - 1);
+    }
+  };
+
   const retry = () => {
     const word = words[wordIndex];
     const shuffled = word.split('').sort(() => Math.random() - 0.5);
@@ -90,7 +96,7 @@ export default function LetterSort() {
 
   return (
     <div className="letter-sort">
-      <h1>Build the Word Game</h1>
+      <h1>Build the Word </h1>
       <div className="score">Score: {score}</div>
       <div className="slots">
         {slots.map((s,i) => (
@@ -107,6 +113,7 @@ export default function LetterSort() {
         ))}
       </div>
       <div className="buttons">
+        <button onClick={previous} className="prev-btn" disabled={wordIndex===0}>Previous</button>
         <button onClick={next} className="next-btn">Next</button>
         <button onClick={retry} className="retry-btn">Retry</button>
         <button onClick={() => navigate('/activities')} className="back-btn">Back to Menu</button>

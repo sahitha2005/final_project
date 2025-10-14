@@ -16,7 +16,9 @@ const AlphabetsGridPage = () => {
       <button className="back-btn" onClick={() => navigate("/topics")}>
         Back to Topics
       </button>
+
       <h2>Select a Letter</h2>
+
       <div className="letters-grid">
         {letters.map((letter) => (
           <div
@@ -27,6 +29,16 @@ const AlphabetsGridPage = () => {
             {letter}
           </div>
         ))}
+      </div>
+
+      {/* ✅ Bottom Center Start Quiz Button */}
+      <div className="button-bottom-center">
+        <button
+          className="start-quiz-btn"
+          onClick={() => navigate("/activities")}
+        >
+          Start Alphabet Quiz
+        </button>
       </div>
     </div>
   );

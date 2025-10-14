@@ -20,7 +20,6 @@ export default function ShapesQuiz() {
     { name: "Pentagon", url: "https://cdn1.iconfinder.com/data/icons/iconoir-vol-3/24/pentagon-256.png" },
     { name: "Oval", url: "https://cdn1.iconfinder.com/data/icons/shapes-102/24/_oval-256.png" },
   ];
-
   const current = shapeQuizData[index];
 
   const generateOptions = (correctShape) => {
@@ -67,6 +66,16 @@ export default function ShapesQuiz() {
     } else {
       setQuizCompleted(true);
       speak(`Quiz completed! Your score is ${score} out of ${shapeQuizData.length}`);
+    }
+  };
+
+  const handlePrevious = () => {
+    if (index > 0) {
+      const prevIndex = index - 1;
+      setIndex(prevIndex);
+      setSelected("");
+      setFeedback("");
+      setOptions(generateOptions(shapeQuizData[prevIndex].name));
     }
   };
 
@@ -121,6 +130,7 @@ export default function ShapesQuiz() {
             </div>
 
             <div className="quiz-buttons">
+              {index > 0 && <button className="previous-btn" onClick={handlePrevious}>Previous</button>}
               {feedback === "wrong" && <button onClick={handleRetry}>Retry</button>}
               <button onClick={handleNext}>Next</button>
             </div>
