@@ -1,6 +1,10 @@
 .single-letter-page {
   padding: 30px;
   text-align: center;
+   background: url("https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L3BmLXMxMDQtMDM3My5qcGc.jpg")
+              no-repeat center center/cover;
+  position: relative;
+  min-height: 100vh;
 }
 
 .single-letter-page h2 {

@@ -3,10 +3,30 @@
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(to bottom right, #e0f7fa, #bbdefb);
+  background: url("https://thumbs.dreamstime.com/b/print-182411869.jpg")
+              no-repeat center center/cover;
   font-family: "Poppins", sans-serif;
   text-align: center;
   padding: 20px;
+  position: relative;
+}
+
+/* Light overlay for better readability */
+.numbers-quiz::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.35);
+  z-index: 0;
+}
+
+/* Keep all content above overlay */
+.numbers-quiz * {
+  position: relative;
+  z-index: 1;
 }
 
 /* Center the Back Button at Top */
@@ -36,7 +56,8 @@
 
 /* Quiz Card */
 .quiz-card {
-  background: white;
+background: linear-gradient(145deg, #e0f7fa, #b2ebf2);
+
   border-radius: 20px;
   padding: 30px;
   width: 380px;
@@ -129,6 +150,7 @@ h2 {
 .score-card:hover {
   transform: scale(1.05);
 }
+
 .final-score-card {
   display: flex;
   flex-direction: column;

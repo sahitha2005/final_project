@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./NumbersQuiz.css"; // reuse the same CSS
+import "./ShapesQuiz.css"; // reuse the same CSS
 
 export default function ShapesQuiz() {
   const navigate = useNavigate();

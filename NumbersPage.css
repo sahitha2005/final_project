@@ -1,6 +1,10 @@
 .numbers-page {
   padding: 20px;
   text-align: center;
+   background: url("https://img.freepik.com/premium-vector/spring-pink-forest-background_317442-1813.jpg?semt=ais_hybrid&w=740&q=80")
+              no-repeat center center/cover;
+  position: relative;
+  min-height: 100vh;
 }
 
 .back-btn {

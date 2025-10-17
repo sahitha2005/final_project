@@ -13,10 +13,10 @@ export default function ActivitiesMenu() {
       <h1 className="title">Choose an Activity</h1>
       <div className="buttons">
         <button className="activity-btn" onClick={() => navigate('/activities/word-match')}>
-          Word–Image Match 🍎
+          Word–Image Match 
         </button>
         <button className="activity-btn" onClick={() => navigate('/activities/letter-sort')}>
-          Build the Word 🔤
+          Build the Word 
         </button>
       </div>
     </div>

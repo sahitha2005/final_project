@@ -1,7 +1,10 @@
 .topic-page {
   padding: 30px;
   text-align: center;
-}
+   background: url("https://thumbs.dreamstime.com/b/cute-background-d-baby-podium-product-platform-display-pastel-scene-children-presentation-render-childish-cute-background-d-374629936.jpg")
+              no-repeat center center/cover;
+  position: relative;
+  min-height: 100vh;}
 
 .topic-page h2 {
   margin-bottom: 30px;
@@ -20,7 +23,7 @@
 .topic-page .topic-card {
   padding: 20px;
   border-radius: 10px;
-  background-color: #2196f3; /* lighter blue */
+  background-color: #a183f1; /* lighter blue */
   color: white;
   font-size: 18px;
   font-weight: bold;
@@ -30,7 +33,7 @@
 
 .topic-page .topic-card:hover {
   transform: scale(1.05);
-  background-color: #1976d2; /* darker blue on hover */
+  background-color: #791cf3; /* darker blue on hover */
 }
 
 .topic-page .topic-card img.topic-image {

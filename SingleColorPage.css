@@ -3,6 +3,9 @@
   padding: 20px;
   background-color: #f9fafc;
   min-height: 100vh;
+   background: url("https://t4.ftcdn.net/jpg/02/14/10/91/360_F_214109152_EiUgb30PxWvGGVQpBym4znL6AJAnwg11.jpg")
+              no-repeat center center/cover;
+  position: relative;
 }
 
 .back-btn {

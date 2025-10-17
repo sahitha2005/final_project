@@ -1,43 +1,71 @@
-.login-container {
-  max-width: 400px;
-  margin: 50px auto;
-  padding: 20px;
-  border: 2px solid #ccc;
-  border-radius: 10px;
-  text-align: center;
-  background-color: #f9f9f9;
+/* Full-page background and center content */
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('https://img.freepik.com/free-psd/amusement-park-sale-blank-banner-background_23-2151652735.jpg?semt=ais_hybrid&w=740&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: "Poppins", sans-serif;
+  position: relative;
 }
 
+/* Optional overlay for better contrast */
+.login-page::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.25); /* dark overlay */
+  z-index: 0;
+}
+
+/* Form card */
 .login-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+  position: relative; /* above overlay */
+  z-index: 1;
+  background: rgba(8, 174, 216, 0.9);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  width: 350px;
+  text-align: center;
 }
 
-.login-form label {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  font-weight: bold;
+/* Error message */
+.login-form .error {
+  color: red;
+  margin-bottom: 10px;
 }
 
-.login-form input {
-  padding: 8px;
-  font-size: 16px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-.login-form button {
+/* Input fields */
+.input-field {
+  width: 100%;
   padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
   font-size: 16px;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  box-sizing: border-box;
 }
 
-.login-form button:hover {
-  background-color: #45a049;
+/* Submit button */
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background-color: #4b9cd3;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #3a8bc1;
+  transform: scale(1.02);
 }

@@ -7,6 +7,9 @@
   text-align: center;
   padding: 20px;
   box-sizing: border-box;
+   background: url("https://t3.ftcdn.net/jpg/02/39/86/82/360_F_239868246_jCA7Znk0lXRaZS6jCnpw0327phy8OBPy.jpg")
+              no-repeat center center/cover;
+  position: relative;
 }
 
 .back-btn {

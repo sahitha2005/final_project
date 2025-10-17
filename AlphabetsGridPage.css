@@ -1,10 +1,33 @@
 .alphabet-grid-page {
   padding: 30px;
   text-align: center;
+  min-height: 100vh;
+  background: url("https://img.freepik.com/free-photo/3d-cartoon-background-children_23-2150150801.jpg?semt=ais_hybrid&w=740&q=80") 
+              no-repeat center center/cover;
+  position: relative;
+}
+
+/* Light overlay for better readability */
+.alphabet-grid-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.35);
+  z-index: 0;
+}
+
+/* Keep all content above overlay */
+.alphabet-grid-page * {
+  position: relative;
+  z-index: 1;
 }
 
 .alphabet-grid-page h2 {
   margin-bottom: 20px;
+  color: #1a237e;
 }
 
 .alphabet-grid-page .back-btn {
@@ -15,6 +38,7 @@
   color: white;
   cursor: pointer;
   margin-bottom: 20px;
+  transition: all 0.3s ease;
 }
 
 .alphabet-grid-page .back-btn:hover {
@@ -32,7 +56,7 @@
 .alphabet-grid-page .letter-card {
   padding: 20px;
   border-radius: 8px;
-  background-color:gray;
+  background-color: black;
   color: white;
   font-size: 22px;
   font-weight: bold;
@@ -42,5 +66,5 @@
 
 .alphabet-grid-page .letter-card:hover {
   transform: scale(1.1);
-  background-color: gray;
+  background-color: darkgray;
 }

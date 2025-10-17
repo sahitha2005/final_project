@@ -1,10 +1,18 @@
 .single-shape-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* vertically center content */
   text-align: center;
   padding: 20px;
-  background-color: #f9fafc;
+  background: url("https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L3YxMTE2LWJhY2tncm91bmQtMDEuanBn.jpg")
+              no-repeat center center/cover;
   min-height: 100vh;
+  position: relative;
+  box-sizing: border-box;
 }
 
+/* Back button */
 .back-btn {
   background-color: #ff6b6b;
   color: white;
@@ -23,7 +31,7 @@
 
 h2 {
   font-size: 28px;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   color: #333;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -37,13 +45,13 @@ h2 {
   justify-content: center;
   align-items: center;
   max-width: 600px;
-  margin: 0 auto 30px auto;
+  margin: 0 auto;
 }
 
 /* Image Styling */
 .shape-image {
   width: 100%;
-  height: 250px;
+  height: 35vh; /* responsive relative to viewport */
   object-fit: cover;
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -61,7 +69,7 @@ h2 {
   display: flex;
   justify-content: center;
   gap: 20px;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .navigation-buttons button {
@@ -91,6 +99,6 @@ h2 {
   }
 
   .shape-image {
-    height: 200px;
+    height: 25vh; /* smaller height on mobile */
   }
 }

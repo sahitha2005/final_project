@@ -1,36 +1,91 @@
+/* Page background */
 .activities-menu {
-  max-width: 400px;
-  margin: 50px auto;
-  padding: 20px;
-  background: #f9f9f9;
-  border-radius: 15px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  background-image: url('https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg'); /* Added background image */
+  position: relative;           /* Keeps it above the background */
+  min-height: 100vh;            /* Full viewport height */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;      /* Vertical center */
+  align-items: center;          /* Horizontal center */
+  padding: 40px 20px;
+  box-sizing: border-box;
+  background-image: url('https://plus.unsplash.com/premium_photo-1661661862374-2e6298dd1640?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8a2lkcyUyMGJhY2tncm91bmR8ZW58MHx8MHx8fDA%3D&fm=jpg&q=60&w=3000');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  font-family: "Poppins", sans-serif;
 }
+
+/* Inner card */
+.activities-menu .title,
+.activities-menu .buttons,
+.activities-menu .back-btn {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+/* Back button */
+.activities-menu .back-btn {
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: none;
+  background: #ff6b6b;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.activities-menu .back-btn:hover {
+  background: #e55b5b;
+  transform: scale(1.05);
+}
+
+/* Title */
 .activities-menu .title {
-  font-size: 1.8rem;
-  margin-bottom: 25px;
-  color: #333;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #fff;
+  text-align: center;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+  font-weight: 600;
 }
+
+/* Buttons container */
 .activities-menu .buttons {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 18px;
 }
+
+/* Activity buttons */
 .activities-menu .activity-btn {
-  padding: 12px;
-  font-size: 1rem;
-  border-radius: 10px;
+  padding: 14px;
+  font-size: 1.1rem;
+  border-radius: 12px;
   border: none;
-  background-color: #4f46e5;
+  background: linear-gradient(90deg, #667eea, #764ba2);
   color: white;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
 }
+
 .activities-menu .activity-btn:hover {
-  background-color: #4338ca;
+  transform: scale(1.05);
+  background: linear-gradient(90deg, #5a67d8, #6b46c1);
+  box-shadow: 0 6px 15px rgba(118, 75, 162, 0.3);
+}
+
+/* Optional: make the buttons and title appear on a semi-transparent card */
+.activities-menu::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.35);  /* Dark overlay for contrast */
+  z-index: -1;  /* Behind content */
+  border-radius: 15px;
 }

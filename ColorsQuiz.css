@@ -3,13 +3,32 @@
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(to bottom right, #e0f7fa, #bbdefb);
+  background: url("https://images.unsplash.com/photo-1605902711622-cfb43c4437d1?auto=format&fit=crop&w=1470&q=80") 
+              no-repeat center center/cover;
   font-family: "Poppins", sans-serif;
   text-align: center;
   padding: 20px;
 }
 
-/* Centered Back Button at Top */
+/* Add a subtle overlay for better text visibility */
+.numbers-quiz::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3); /* light overlay */
+  z-index: 0;
+}
+
+/* Ensure content is above overlay */
+.numbers-quiz * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Back button styling */
 .top-center {
   width: 100%;
   display: flex;
@@ -36,7 +55,7 @@
 
 /* Quiz Card */
 .quiz-card {
-  background: white;
+  background: rgba(255, 255, 255, 0.9);
   border-radius: 20px;
   padding: 30px;
   width: 380px;
@@ -153,8 +172,10 @@ h2 {
   font-size: 1.5rem;
   padding: 20px 30px;
 }
+
+/* Previous Button */
 .previous-btn {
-  background-color: #3498db; /* Blue */
+  background-color: #3498db;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -166,5 +187,5 @@ h2 {
 }
 
 .previous-btn:hover {
-  background-color: #2980b9; /* Darker blue on hover */
+  background-color: #2980b9;
 }

@@ -1,12 +1,29 @@
-/* Shapes / Colors Grid */
+/* Full page background */
+.shapes-page-container {
+  min-height: 100vh; /* full viewport height */
+  width: 100%;
+  background: url("https://st2.depositphotos.com/8543466/47376/i/450/depositphotos_473764564-stock-photo-baby-kid-toy-background-colorful.jpg")
+              no-repeat center center/cover; /* cover full container */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* keep grid at top */
+  padding: 20px; /* optional padding */
+  box-sizing: border-box;
+}
+
+/* Shapes Grid */
 .shapes-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* 5 items per row */
-  gap: 30px; /* increased gap between items */
+  grid-template-columns: repeat(5, 1fr);
+  gap: 30px;
   justify-items: center;
+  width: 100%;
+  max-width: 1200px; /* optional: limits grid width */
   margin-top: 20px;
 }
 
+/* Shape Cards */
 .shape-card {
   cursor: pointer;
   border-radius: 12px;
@@ -15,13 +32,13 @@
   background: white;
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 120px; /* slightly bigger card */
-  height: 140px; /* add some height for name */
+  width: 120px;
+  height: 140px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 10px; /* inner spacing */
+  padding: 10px;
 }
 
 .shape-card:hover {
@@ -41,7 +58,8 @@
   color: #333;
   text-align: center;
 }
+
 .centered-title {
   text-align: center;
-  margin: 20px 0; /* spacing above and below */
+  margin: 20px 0;
 }
