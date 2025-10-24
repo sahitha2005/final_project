@@ -13,9 +13,11 @@ export default function LetterSort() {
   const [score, setScore] = useState(0);
   const [showScoreCard, setShowScoreCard] = useState(false);
 
-  // Prepare letters for current word
+  const childName = localStorage.getItem("childName") || "Unknown User";
+
+  // Prepare letters for the current word
   useEffect(() => {
-    if(wordIndex >= words.length){
+    if (wordIndex >= words.length) {
       setShowScoreCard(true);
       return;
     }
@@ -36,6 +38,34 @@ export default function LetterSort() {
     window.speechSynthesis.speak(utterance);
   };
 
+  // Save score to backend
+  const saveScore = async (childName, score, total) => {
+    try {
+      const response = await fetch("http://localhost:5000/saveScore", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          childName,
+          quizType: "Build Word Quiz",
+          score,
+          total,
+          date: new Date(),
+        }),
+      });
+      const result = await response.json();
+      console.log("✅ Build Word score saved:", result.message);
+    } catch (error) {
+      console.error("❌ Error saving Build Word score:", error);
+    }
+  };
+
+  // Called when quiz finishes
+  const finishQuiz = () => {
+    setShowScoreCard(true);
+    saveScore(childName, score, words.length);
+  };
+
+  // Handle drop and automatic question change
   const handleDrop = (letter, idx) => {
     if (locked) return;
     const newLetters = [...letters];
@@ -48,14 +78,21 @@ export default function LetterSort() {
     setLetters(newLetters);
     setSlots(newSlots);
 
-    // Check correctness immediately
     const currentWord = words[wordIndex];
     if(newSlots.join('') === currentWord){
       setLocked(true);
-      setScore(score + 1);
+      setScore(prev => prev + 1);
       speak('Correct!');
+
+      setTimeout(() => {
+        if(wordIndex < words.length - 1){
+          setWordIndex(wordIndex + 1);
+        } else {
+          finishQuiz(); // ✅ Save score here
+        }
+      }, 1000);
+
     } else {
-      // If slot filled but not correct yet, allow retry
       speak('Try again');
     }
   };
@@ -64,7 +101,7 @@ export default function LetterSort() {
     if(wordIndex < words.length - 1){
       setWordIndex(wordIndex + 1);
     } else {
-      setShowScoreCard(true);
+      finishQuiz();
     }
   };
 

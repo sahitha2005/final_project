@@ -10,6 +10,9 @@ export default function ColorsQuiz() {
   const [score, setScore] = useState(0);
   const [quizCompleted, setQuizCompleted] = useState(false);
 
+  // ✅ Added: Get child name from local storage (saved during login)
+  const childName = localStorage.getItem("childName") || "Unknown User";
+
   const colorQuizData = [
     { color: "Red", urls: ["https://th.bing.com/th/id/R.c2181265870ed35f75ccd360dbbc96fe?rik=0%2bbKQH0rUgY7ng&riu=http%3a%2f%2fentertainmentmesh.com%2fwp-content%2fuploads%2f2016%2f01%2fdeep-red-rose.jpg&ehk=YLV5wUtEhLDmYLh0HTadrFeycZzVG4vovl7lmjbakz0%3d&risl=&pid=ImgRaw&r=0"] },
     { color: "Blue", urls: ["https://www.cleankisslifestyle.com/cdn/shop/articles/316942-blue-sky-with-clouds.jpg?v=1605136872&width=1920"] },
@@ -57,6 +60,27 @@ export default function ColorsQuiz() {
     }
   };
 
+  // ✅ Function to save quiz score in MongoDB
+  const saveScore = async (childName, quizType, score, total) => {
+    try {
+      const response = await fetch("http://localhost:5000/saveScore", { // <-- backend port
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          childName,
+          quizType,
+          score,
+          total,
+          date: new Date(),
+        }),
+      });
+      const result = await response.json();
+      console.log("✅ Quiz score saved:", result.message);
+    } catch (error) {
+      console.error("❌ Error saving quiz score:", error);
+    }
+  };
+
   const handleNext = () => {
     if (index < colorQuizData.length - 1) {
       const nextIndex = index + 1;
@@ -67,6 +91,9 @@ export default function ColorsQuiz() {
     } else {
       setQuizCompleted(true);
       speak(`Quiz completed! Your score is ${score} out of ${colorQuizData.length}`);
+
+      // ✅ Save score when quiz finishes
+      saveScore(childName, "Colors Quiz", score, colorQuizData.length);
     }
   };
 
@@ -120,7 +147,7 @@ export default function ColorsQuiz() {
                     onClick={() => handleSelect(opt)}
                   >
                     <img
-                      src={optData.urls[0]} // only one image per option
+                      src={optData.urls[0]}
                       alt={opt}
                       style={{ width: "80px", height: "80px", borderRadius: "10px" }}
                     />

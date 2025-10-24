@@ -10,6 +10,8 @@ export default function ShapesQuiz() {
   const [score, setScore] = useState(0);
   const [quizCompleted, setQuizCompleted] = useState(false);
 
+  const childName = localStorage.getItem("childName") || "Unknown User";
+
   const shapeQuizData = [
     { name: "Circle", url: "https://cdn1.iconfinder.com/data/icons/material-core/20/check-circle-outline-blank-256.png" },
     { name: "Square", url: "https://cdn0.iconfinder.com/data/icons/phosphor-regular-vol-4/256/square-256.png" },
@@ -56,6 +58,26 @@ export default function ShapesQuiz() {
     }
   };
 
+  const saveScore = async (childName, score, total) => {
+    try {
+      const response = await fetch("http://localhost:5000/saveScore", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          childName,
+          quizType: "Shapes Quiz",
+          score,
+          total,
+          date: new Date(),
+        }),
+      });
+      const result = await response.json();
+      console.log("✅ Shapes quiz score saved:", result.message);
+    } catch (error) {
+      console.error("❌ Error saving shapes quiz score:", error);
+    }
+  };
+
   const handleNext = () => {
     if (index < shapeQuizData.length - 1) {
       const nextIndex = index + 1;
@@ -66,6 +88,7 @@ export default function ShapesQuiz() {
     } else {
       setQuizCompleted(true);
       speak(`Quiz completed! Your score is ${score} out of ${shapeQuizData.length}`);
+      saveScore(childName, score, shapeQuizData.length); // ✅ Save score to database
     }
   };
 
@@ -86,7 +109,6 @@ export default function ShapesQuiz() {
 
   return (
     <div className="numbers-quiz">
-      {/* Centered Back Button */}
       <div className="top-center">
         <button className="back-btn" onClick={() => navigate("/shapes")}>
           Back to Shapes

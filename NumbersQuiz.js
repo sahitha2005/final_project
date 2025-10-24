@@ -33,6 +33,8 @@ export default function NumbersQuiz() {
   const [score, setScore] = useState(0);
   const [quizCompleted, setQuizCompleted] = useState(false);
 
+  const childName = localStorage.getItem("childName") || "Unknown User";
+
   const current = quizData[index];
 
   // Generate options once per question
@@ -71,6 +73,26 @@ export default function NumbersQuiz() {
     }
   };
 
+  const saveScore = async (childName, score, total) => {
+    try {
+      const response = await fetch("http://localhost:5000/saveScore", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          childName,
+          quizType: "Numbers Quiz",
+          score,
+          total,
+          date: new Date(),
+        }),
+      });
+      const result = await response.json();
+      console.log("✅ Number quiz score saved:", result.message);
+    } catch (error) {
+      console.error("❌ Error saving number quiz score:", error);
+    }
+  };
+
   const handleNext = () => {
     if (index < quizData.length - 1) {
       const nextIndex = index + 1;
@@ -81,6 +103,7 @@ export default function NumbersQuiz() {
     } else {
       setQuizCompleted(true); // show final score in card
       speak(`Quiz completed! Your score is ${score} out of ${quizData.length}`);
+      saveScore(childName, score, quizData.length); // ✅ Save score in database
     }
   };
 

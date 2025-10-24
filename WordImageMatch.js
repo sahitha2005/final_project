@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "./WordImageMatch.css";
 
@@ -161,33 +161,38 @@ const data = [
     correct: 1 }
 ];
 
-export default function WordImageMatch() {
+
+export default function WordImageMatch({ childName }) {
   const navigate = useNavigate();
   const [index, setIndex] = useState(0);
   const [selected, setSelected] = useState(null);
   const [score, setScore] = useState(0);
   const [finished, setFinished] = useState(false);
-  const [wrongSelected, setWrongSelected] = useState(false); // Track wrong answer
+  const [wrongSelected, setWrongSelected] = useState(false);
+  const saveOnce = useRef(false);
 
   const item = data[index];
 
+  // Function for speech
   const speak = (text) => {
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.rate = 0.8;
     utterance.pitch = 1.2;
     const voices = window.speechSynthesis.getVoices();
-    const femaleVoice = voices.find(v => v.name.toLowerCase().includes("female") || v.name.toLowerCase().includes("zira"));
+    const femaleVoice = voices.find(
+      v => v.name.toLowerCase().includes("female") || v.name.toLowerCase().includes("zira")
+    );
     if (femaleVoice) utterance.voice = femaleVoice;
     window.speechSynthesis.speak(utterance);
   };
 
+  // Handle image click
   const handleClick = (i) => {
     if (selected !== null) return;
-
     setSelected(i);
 
     if (i === item.correct) {
-      setScore(score + 1);
+      setScore(prev => prev + 1);
       speak("Correct");
       setWrongSelected(false);
     } else {
@@ -196,28 +201,53 @@ export default function WordImageMatch() {
     }
   };
 
+  // Next question
   const next = () => {
     if (index < data.length - 1) {
       setSelected(null);
       setWrongSelected(false);
-      setIndex(index + 1);
+      setIndex(prev => prev + 1);
     } else {
       setFinished(true);
     }
   };
 
+  // Previous question
   const previous = () => {
     if (index > 0) {
       setSelected(null);
       setWrongSelected(false);
-      setIndex(index - 1);
+      setIndex(prev => prev - 1);
     }
   };
 
+  // Retry for wrong answer
   const retry = () => {
     setSelected(null);
     setWrongSelected(false);
   };
+
+  // Save score to backend when finished
+  useEffect(() => {
+    if (finished && childName && !saveOnce.current) {
+      saveOnce.current = true;
+      fetch("http://localhost:3000/saveScore", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          childName,
+          score,
+          total: data.length,
+          date: new Date(),
+          collection: "wordImageResults",
+          database: "myproject",
+        }),
+      })
+        .then(res => res.json())
+        .then(result => console.log("Score saved:", result))
+        .catch(err => console.error("Error saving score:", err));
+    }
+  }, [finished, childName, score]);
 
   if (finished) {
     return (
@@ -235,19 +265,21 @@ export default function WordImageMatch() {
     <div className="word-match">
       <h1>Word–Image Match Game</h1>
       <div className="score">Score: {score}</div>
-      <div className="word">Select the picture for: <strong>{item.word}</strong></div>
+      <div className="word">
+        Select the picture for: <strong>{item.word}</strong>
+      </div>
       <div className="grid">
         {item.images.map((img, i) => {
-          let border = 'gray';
-          if (selected !== null) border = i === item.correct ? 'green' : i === selected ? 'red' : 'gray';
+          let border = "gray";
+          if (selected !== null) border = i === item.correct ? "green" : i === selected ? "red" : "gray";
           return (
-            <img 
-              key={i} 
-              src={img} 
-              alt={`option-${i}`} 
-              className="image-btn" 
-              style={{ borderColor: border }} 
-              onClick={() => handleClick(i)} 
+            <img
+              key={i}
+              src={img}
+              alt={`option-${i}`}
+              className="image-btn"
+              style={{ borderColor: border }}
+              onClick={() => handleClick(i)}
             />
           );
         })}
@@ -258,9 +290,7 @@ export default function WordImageMatch() {
         <button onClick={next} className="next-btn">Next</button>
       </div>
       <div className="buttons">
-        <button onClick={() => navigate("/activities")} className="back-btn">
-          Back
-        </button>
+        <button onClick={() => navigate("/activities")} className="back-btn">Back</button>
       </div>
     </div>
   );

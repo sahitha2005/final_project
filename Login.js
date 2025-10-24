@@ -27,8 +27,11 @@ function Login() {
 
       const data = await response.json();
 
-      if (response.ok) {
-        navigate("/topics");
+      if (response.ok || data.success) {
+        // ✅ Store childName in localStorage
+        localStorage.setItem("childName", childName);
+
+        navigate("/topics"); // redirect to topics page
       } else {
         setError(data.message || "Error adding user.");
       }
