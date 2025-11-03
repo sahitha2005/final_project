@@ -15,7 +15,8 @@ import SingleNumberPage from './components/SingleNumberPage';
 import NumbersQuiz from './components/Activities/NumbersQuiz'; 
 import ColorsQuiz from './components/Activities/ColorsQuiz'; 
 import ShapesQuiz from './components/Activities/ShapesQuiz'; 
-import Login from './components/Login'; // <-- Import Login page
+import Login from './components/Login'; 
+import Signup from './components/Signup'; // Signup page import
 
 function App() { 
   return ( 
@@ -23,6 +24,10 @@ function App() {
       <Routes> 
         {/* Login Page */}
         <Route path="/" element={<Login />} /> 
+        <Route path="/login" element={<Login />} />  {/* Optional direct route */}
+
+        {/* Signup Page */}
+        <Route path="/signup" element={<Signup />} /> 
 
         {/* Topics Page */}
         <Route path="/topics" element={<TopicsPage />} /> 

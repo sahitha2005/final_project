@@ -1,39 +1,36 @@
-// src/components/Login.js
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./LoginPage.css";
 
 function Login() {
   const navigate = useNavigate();
-  const [childName, setChildName] = useState("");
-  const [parentName, setParentName] = useState("");
   const [parentEmail, setParentEmail] = useState("");
+  const [childName, setChildName] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!childName || !parentName || !parentEmail) {
+    if (!parentEmail || !childName || !password) {
       setError("Please fill all fields.");
       return;
     }
 
     try {
-      const response = await fetch("http://localhost:5000/addUser", {
+      const response = await fetch("http://localhost:5000/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ childName, parentName, parentEmail }),
+        body: JSON.stringify({ parentEmail, childName, password }),
       });
 
       const data = await response.json();
 
-      if (response.ok || data.success) {
-        // ✅ Store childName in localStorage
-        localStorage.setItem("childName", childName);
-
-        navigate("/topics"); // redirect to topics page
+      if (response.ok && data.success) {
+        localStorage.setItem("childName", data.childName);
+        navigate("/topics");
       } else {
-        setError(data.message || "Error adding user.");
+        setError(data.message || "Invalid credentials.");
       }
     } catch (err) {
       console.error(err);
@@ -46,28 +43,16 @@ function Login() {
       <form className="login-form" onSubmit={handleSubmit}>
         <h2>Login</h2>
         {error && <p className="error">{error}</p>}
-        <input
-          type="text"
-          placeholder="Child Name"
-          value={childName}
-          onChange={(e) => setChildName(e.target.value)}
-          className="input-field"
-        />
-        <input
-          type="text"
-          placeholder="Parent Name"
-          value={parentName}
-          onChange={(e) => setParentName(e.target.value)}
-          className="input-field"
-        />
-        <input
-          type="email"
-          placeholder="Parent Email"
-          value={parentEmail}
-          onChange={(e) => setParentEmail(e.target.value)}
-          className="input-field"
-        />
+
+        <input type="email" placeholder="Parent Email" value={parentEmail} onChange={(e) => setParentEmail(e.target.value)} className="input-field"/>
+        <input type="text" placeholder="Child Name" value={childName} onChange={(e) => setChildName(e.target.value)} className="input-field"/>
+        <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} className="input-field"/>
+
         <button type="submit" className="submit-btn">Login</button>
+
+        <p style={{ marginTop: "10px", fontSize: "14px" }}>
+          Don't have an account? <span style={{ color: "blue", cursor: "pointer" }} onClick={() => navigate("/signup")}>Sign Up</span>
+        </p>
       </form>
     </div>
   );
