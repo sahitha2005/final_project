@@ -16,7 +16,10 @@ import NumbersQuiz from './components/Activities/NumbersQuiz';
 import ColorsQuiz from './components/Activities/ColorsQuiz'; 
 import ShapesQuiz from './components/Activities/ShapesQuiz'; 
 import Login from './components/Login'; 
-import Signup from './components/Signup'; // Signup page import
+import Signup from './components/Signup';
+import AnimalsPage from './components/Animals';
+import SingleAnimalPage from './components/SingleAnimalPage';
+ // Signup page import
 
 function App() { 
   return ( 
@@ -47,6 +50,11 @@ function App() {
         {/* Numbers */} 
         <Route path="/numbers" element={<NumbersPage />} /> 
         <Route path="/numbers/:number" element={<SingleNumberPage />} /> 
+       
+
+        {/* Animals */}
+        <Route path="/animals" element={<AnimalsPage />} />
+        <Route path="/animals/:animal" element={<SingleAnimalPage />} />
 
         {/* Activities */} 
         <Route path="/activities" element={<ActivitiesMenu />} /> 
